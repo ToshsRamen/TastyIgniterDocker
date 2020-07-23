@@ -14,7 +14,7 @@ RUN set -ex; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
-	docker-php-ext-install -j$(nproc) gd mbstring pdo pdo_mysql opcache curl exif zip
+	docker-php-ext-install -j$(nproc) pdo pdo_mysql curl gd mbstring opcache exif zip
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
@@ -31,10 +31,10 @@ RUN a2enmod rewrite
 
 VOLUME /var/www/html
 
-ENV TASTYIGNITER_VERSION 3.0.4-beta.20.1
+ENV TASTYIGNITER_VERSION 3.0.4-beta.22
 
 RUN set -ex; \
-	curl -o tastyigniter.zip -fSL "https://codeload.github.com/tastyigniter/TastyIgniter/zip/v${TASTYIGNITER_VERSION}"; \
+	curl -o tastyigniter.zip -fSL "https://codeload.github.com/ToshsRamen/TastyIgniter/zip/v${TASTYIGNITER_VERSION}"; \
 	unzip tastyigniter.zip -d /usr/src/; \
 	rm tastyigniter.zip; \
 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter
