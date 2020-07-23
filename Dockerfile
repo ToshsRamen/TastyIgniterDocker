@@ -40,7 +40,7 @@ RUN set -ex; \
 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    cd /usr/src/tastyigniter && composer install
+    cd /usr/src/tastyigniter && php -d memory_limit=-1 $(which composer) install
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
