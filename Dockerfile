@@ -35,7 +35,7 @@ VOLUME /var/www/html
 ENV TASTYIGNITER_VERSION 2.1.1
 
 RUN set -ex; \
-	curl -o tastyigniter.zip -fSL "https://codeload.github.com/tastyigniter/TastyIgniter/zip/${TASTYIGNITER_VERSION}"; \
+	curl -o tastyigniter.zip -fSL "https://codeload.github.com/ToshsRamen/TastyIgniter/zip/${TASTYIGNITER_VERSION}"; \
 	unzip tastyigniter.zip -d /usr/src/; \
 	rm tastyigniter.zip; \
 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter; \
